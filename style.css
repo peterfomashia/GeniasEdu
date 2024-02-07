@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Asap", sans-serif;
+}
+body {
+  background: rgb(124, 9, 9);
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  background: transparent;
+}
+
+.sec-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  padding-left: 2rem;
+  border: 2px solid;
+  border-radius: 2rem;
+}
+
+.sec-1 .selamat-datang {
+  text-align: center;
+}
+
+.sec-1 .gambar {
+  margin-left: 20px;
+}
+.sec-1 .gambar img {
+  border-radius: 2rem; /* Atur jarak antara teks dan gambar */
+}
+/* Atur lebar gambar agar responsif */
+.sec-1 img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Atur margin agar lebih responsif di perangkat kecil */
+@media screen and (max-width: 768px) {
+  .sec-1 {
+    flex-direction: column; /* Mengubah orientasi flex menjadi kolom */
+    margin: 1rem; /* Mengurangi margin */
+  }
+
+  .sec-1 .gambar {
+    margin-left: 0; /* Reset margin untuk gambar */
+    margin-top: 20px; /* Atur jarak antara teks dan gambar di perangkat kecil */
+  }
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  padding-left: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Tambahkan aturan gaya untuk hamburger menu */
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+}
+
+/* Penyesuaian untuk perangkat mobile dan tablet */
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: rgb(68, 19, 19);
+    z-index: 1; /* Mengatur nilai z-index untuk menu */
+  }
+
+  .nav-list.show {
+    display: flex; /* Menampilkan menu saat kelas "show" ditambahkan */
+  }
+
+  .nav-list a {
+    padding: 1rem;
+    display: block;
+  }
+
+  .nav-container {
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between; /* Perbaiki posisi logo dan hamburger menu */
+    position: relative; /* Menambahkan posisi relatif */
+    z-index: 2; /* Mengatur nilai z-index untuk .nav-container */
+  }
+
+  .mobile-menu-icon {
+    display: block;
+    order: 2; /* Mengatur urutan hamburger menu */
+    cursor: pointer;
+    z-index: 3; /* Mengatur nilai z-index untuk .mobile-menu-icon (paling depan) */
+  }
+
+  .logo {
+    order: 1; /* Mengatur urutan logo */
+  }
+}
+
+.mobile-menu-icon {
+  order: 1; /* Mengatur urutan hamburger menu */
+  cursor: pointer;
+}
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section:nth-child(1) {
+  color: #e0ffff;
+}
+section:nth-child(2) {
+  color: white;
+  background: rgb(199, 127, 10);
+}
+section:nth-child(3) {
+  color: #e0ffff;
+}
+section:nth-child(4) {
+  color: white;
+  background: rgb(199, 127, 10);
+}
+section .container {
+  margin: 50px;
+}
+section h1 {
+  font-size: 3rem;
+  margin: 20px;
+}
+section h2 {
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+}
+section .text-container {
+  display: flex;
+  color: white;
+}
+section .text-container .text-box {
+  margin: 5px;
+  padding: 20px;
+  color: white;
+}
+section .text-container .text-box h3 {
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+  section h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  section .text-container {
+    flex-direction: column;
+  }
+}
+
+.reveal {
+  position: relative;
+  opacity: 0;
+}
+
+.reveal.active {
+  opacity: 1;
+}
+.active.fade-bottom {
+  animation: fade-bottom 1s ease-in;
+}
+.active.fade-left {
+  animation: fade-left 1s ease-in;
+}
+.active.fade-right {
+  animation: fade-right 1s ease-in;
+}
+@keyframes fade-bottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+section .text-container .text-box img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Menyelesaikan masalah margin bawah pada gambar di dalam inline elements */
+  margin: 0 auto; /* Menyusun gambar di tengah text-box */
+}
+
+/* Animation Gulik */
+
+.progress {
+  height: 3px;
+  width: 0%;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation: progress 1s linear;
+}
+.cube-wrap {
+  --size: 30vmin;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  perspective: 100vmin;
+}
+.cube {
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateZ(45deg) rotateY(-45deg);
+  animation: cube 1s linear;
+}
+@keyframes cube {
+  to {
+    transform: rotateX(360deg) rotateZ(45deg) rotateY(-45deg);
+  }
+}
+
+.side {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  background-color: #eee;
+  backface-visibility: visible;
+  top: calc(var(--size) * -0.5);
+  left: calc(var(--size) * -0.5);
+}
+.top {
+  background-color: #afa6a6;
+  transform: rotateX(90deg) translateZ(calc(var(--size) * 0.5));
+}
+.bottom {
+  background-color: #999;
+  transform: rotateX(90deg) translateZ(calc(var(--size) * -0.5));
+}
+.left {
+  background-color: #ccc;
+  transform: rotateY(90deg) translateZ(calc(var(--size) * 0.5));
+}
+.right {
+  background-color: #ddd;
+  transform: rotateY(90deg) translateZ(calc(var(--size) * -0.5));
+}
+.front {
+  background-color: #aaa;
+  transform: translateZ(calc(var(--size) * 0.5));
+}
+.back {
+  background-color: #bbb;
+  transform: translateZ(calc(var(--size) * -0.5));
+}
+
+:root * {
+  /* Pause the animation */
+  animation-play-state: paused;
+  /* Bind the animation to scroll */
+  animation-delay: calc(var(--scroll) * -1s);
+  /* These last 2 properites clean up overshoot weirdness */
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
